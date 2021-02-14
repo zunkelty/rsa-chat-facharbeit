@@ -1,0 +1,80 @@
+{
+  "name": "RSA-Chat-Facharbeit",
+  "version": "1.0.0",
+  "description": "Diese App lässt Nutzer in Live-Chats mit anderen Nutzern kommunizieren und zeigt ihnen dabei wie mit RSA-Verschlüsselung eine End-zu-End-Verschlüsselung sichergestellt ist.",
+  "main": "src/server/index.js",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "npm install --only=dev && npm run build && node src/server/index.js",
+    "devStart": "npm run build && node src/server/index.js",
+    "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
+    "server": "nodemon src/server/index.js",
+    "dev": "SET NODE_ENV=development&& concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "Sönke Peters",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "babel-polyfill": "^6.26.0",
+    "body-parser": "^1.19.0",
+    "boxicons": "^2.0.7",
+    "compression": "^1.7.4",
+    "compression-webpack-plugin": "^6.0.5",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.16.3",
+    "express-rate-limit": "^5.2.3",
+    "express-session": "^1.17.1",
+    "helmet": "^4.3.1",
+    "jquery-ui-dist": "^1.12.1",
+    "js-cookie": "^2.2.1",
+    "mongoose": "^5.11.15",
+    "path": "^0.12.7",
+    "query-string": "^6.14.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^3.4.1",
+    "socket.io": "^3.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.0",
+    "babel-loader": "^8.0.0",
+    "clean-webpack-plugin": "^1.0.0",
+    "concurrently": "^5.3.0",
+    "copy-webpack-plugin": "^6.2.1",
+    "css-loader": "^2.0.0",
+    "eslint": "^5.0.0",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "file-loader": "^3.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "nodemon": "^1.17.3",
+    "style-loader": "^0.23.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.5.0",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.3"
+  }
+}

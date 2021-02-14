@@ -1,0 +1,161 @@
+.page.chat {
+  background: #e43a15;
+  background: -webkit-gradient(linear, left top, right top, from(#e65245), to(#e43a15));
+  background: linear-gradient(to right, #e65245, #e43a15);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.page.chat .choose-chat {
+  width: 20%;
+  min-width: 200px;
+  min-height: 100vh;
+  height: 100vh;
+  max-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  background: #fff;
+}
+
+.page.chat .choose-chat .title {
+  padding: 10px;
+}
+
+.page.chat .choose-chat .title h2 {
+  font: 500 25px "Roboto", sans-serif;
+}
+
+.page.chat .choose-chat .title h3 {
+  font: 500 15px "Open Sans", sans-serif;
+}
+
+.page.chat .choose-chat .loading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font: 500 14px "Open Sans", sans-serif;
+}
+
+.page.chat .choose-chat .loading img {
+  width: 30px;
+}
+
+.page.chat .choose-chat .active-user {
+  border: 1px solid #7F7F7F;
+  border-width: 1px 0 0 0;
+  padding: 10px;
+  min-height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.page.chat .choose-chat .active-user p {
+  font: 500 17px "Open Sans", sans-serif;
+}
+
+.page.chat .choose-chat .active-user:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.page.chat .choose-chat :last-child:not(h3) {
+  border-bottom-width: 1px;
+}
+
+.page.chat input {
+  margin: 20px 10px;
+  min-height: 44px;
+  height: 44px;
+  padding: 0 10px;
+  font: 600 14px "Open Sans", sans-serif;
+  border: 0.5px solid #636363;
+  border-radius: 6px;
+}
+
+.page.chat input:focus {
+  outline: none;
+  -webkit-appearance: none;
+  border: 2px solid #000;
+  background: #f7f7f7;
+}
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

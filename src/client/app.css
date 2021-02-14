@@ -1,0 +1,57 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+*{
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+}
+
+.page{
+    min-height: 100vh;
+}
+
+a.link{
+    color: #207D99;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+a:not(.link){
+    text-decoration: none;
+}
+
+.page.loading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    font: 500 15px "Open Sans", sans-serif;
+}
+
+.page.loading img{
+    width: 50px;
+}
+
+@media screen and (orientation: portrait) {
+    html {
+      /* Rotate the content container */
+      transform: rotate(-90deg);
+      transform-origin: left top;
+      /* Set content width to viewport height */
+      width: 100vh;
+      /* Set content height to viewport width */
+      height: 100vw;
+      overflow-x: hidden;
+      position: absolute;
+      top: 100%;
+      left: 0;
+    }
+  }

@@ -1,0 +1,206 @@
+.page.setup {
+  background: #e43a15;
+  background: -webkit-gradient(linear, left top, right top, from(#e65245), to(#e43a15));
+  background: linear-gradient(to right, #e65245, #e43a15);
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.page.setup .credits {
+  font: 400 13px "Open Sans", sans-serif;
+  padding-top: 15px;
+  color: white;
+  opacity: 0;
+  -webkit-animation: fade-in 200ms;
+          animation: fade-in 200ms;
+  -webkit-animation-delay: 500ms;
+          animation-delay: 500ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.page.setup .credits.fade-out {
+  -webkit-animation: fade-out ease-out 300ms;
+          animation: fade-out ease-out 300ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.page.setup .tile {
+  width: 100%;
+  max-width: 600px;
+  background: #fff;
+  border-radius: 15px;
+  -webkit-box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 25px 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-animation: fade-in-up ease-out 500ms;
+          animation: fade-in-up ease-out 500ms;
+}
+
+.page.setup .tile.fade-out {
+  -webkit-animation: fade-out ease-out 300ms;
+          animation: fade-out ease-out 300ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.page.setup .tile h2 {
+  font: 700 30px "Roboto", sans-serif;
+  padding-bottom: 15px;
+}
+
+.page.setup .tile h3 {
+  font: 500 18px "Open Sans", sans-serif;
+  padding-bottom: 35px;
+}
+
+.page.setup .tile .textfield {
+  font: 600 14px "Open Sans", sans-serif;
+  margin-bottom: 0px;
+}
+
+.page.setup .tile .textfield input {
+  margin-top: 4px;
+  width: 100%;
+  height: 44px;
+  padding: 0 10px;
+  font: 600 14px "Open Sans", sans-serif;
+  border: 0.5px solid #636363;
+  border-radius: 6px;
+}
+
+.page.setup .tile .textfield input:focus {
+  outline: none;
+  -webkit-appearance: none;
+  border: 2px solid #000;
+  background: #f7f7f7;
+}
+
+.page.setup .tile .textfield .error {
+  padding-top: 5px;
+  font: 600 13px "Open Sans", sans-serif;
+  color: red;
+  -webkit-transition: 200ms;
+  transition: 200ms;
+}
+
+.page.setup .tile .textfield.bottom p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.page.setup .tile .submit {
+  margin-top: 15px;
+  background: #000;
+  border-radius: 6px;
+  color: #fff;
+  width: 100%;
+  height: 44px;
+  outline: none;
+  border: 0;
+  font: 600 15px "Open Sans", sans-serif;
+  cursor: pointer;
+}
+
+.page.setup .tile .submit img {
+  height: 20px;
+  display: block;
+  margin: 12px auto;
+}
+
+@-webkit-keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/*# sourceMappingURL=styles.css.map */
