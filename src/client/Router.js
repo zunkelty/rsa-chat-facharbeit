@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './app.css';
-import boxicons from 'boxicons';
 import axios from 'axios';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
