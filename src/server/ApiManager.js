@@ -1,6 +1,6 @@
 const ApiRouter = require("./ApiRouter");
 const ChatManager = require("./ChatManager");
-const SocketManager = require("./socketManager");
+const SocketManager = require("./SocketManager");
 const UserMatcher = require("./UserMatcher");
 
 class ApiManager{
