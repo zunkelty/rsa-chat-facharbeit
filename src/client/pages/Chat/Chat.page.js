@@ -54,7 +54,7 @@ class Chat extends Component {
 
             this.socket.emit('join-chats', this.state.chatId, this.state.userId, this.state.name, JSON.stringify(pubKey))
 
-            this.timeout = setTimeout(() => this.props.history.push('/match?name=' + this.state.name), 3000);
+            this.timeout = setTimeout(() => this.props.history.push('/match?name=' + this.state.name), 10000);
 
             this.socket.on('chat-complete', chat => {
                 console.log('Joined', chat)
