@@ -34,6 +34,7 @@
     "compression-webpack-plugin": "^6.0.5",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "dotenv": "^8.2.0",
     "express": "^4.16.3",
     "express-rate-limit": "^5.2.3",
@@ -41,6 +42,8 @@
     "helmet": "^4.3.1",
     "jquery-ui-dist": "^1.12.1",
     "js-cookie": "^2.2.1",
+    "js-crypto-rsa": "^1.0.2",
+    "jsencrypt": "^3.1.0",
     "mongoose": "^5.11.15",
     "path": "^0.12.7",
     "query-string": "^6.14.0",
@@ -49,7 +52,8 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.1",
-    "socket.io": "^3.1.1"
+    "socket.io": "^3.1.1",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

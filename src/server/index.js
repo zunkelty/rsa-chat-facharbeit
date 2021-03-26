@@ -4,10 +4,8 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http, {
     cors: {}
 });
-const SocketManager = require('./SocketManager');
-new SocketManager(io);
-
-const apiRouter = require('./apiRouter.router');
+const ApiManager = require('./ApiManager');
+const apiManager = new ApiManager(io);
 
 const path = require('path');
 
@@ -32,7 +30,7 @@ http.listen(process.env.PORT || 8080, () => {
 });
 
 // Routes
-app.use('/api', apiRouter);
+app.use('/api', apiManager.getRouter());
 
 //Serve static files
 app.use('/public', express.static(__dirname + '/public' ));

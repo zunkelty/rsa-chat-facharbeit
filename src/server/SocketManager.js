@@ -4,35 +4,36 @@ class SocketManager {
     constructor(io) {
         this.io = io;
 
-        this.activeUsers = [];
-
         this.setup();
+
+        this.onJoinedChat = () => { };
     }
 
     setup() {
         this.io.on('connection', socket => {
-            socket.emit('welcome');
-            console.log('Connected');
-            socket.on('join-chats', (userName, publicKey) => {
+            socket.on('join-chats', (chatId, userId, userName, publicKey) => {
                 console.log('Joined chat', userName, 'with pubKey', publicKey);
-                this.activeUsers.push(new User(userName, publicKey));
-                this.io.sockets.emit('active-users', this.activeUsers.map(user => {
-                    return {
-                        name: user.getName(),
-                        pubKey: user.getKey()
-                    }
-                }))
+                socket.join(chatId);
+                this.onJoinChat(chatId, userId, userName, publicKey);
+
+                socket.on('message', message => {
+                    console.log('Got message', message)
+
+                    let buffer = message.buffer.slice(message.byteOffset, message.byteOffset + message.byteLength);
+
+                    socket.broadcast.to(chatId).emit('message', buffer);
+                })
+
                 socket.on('disconnect', () => {
-                    this.activeUsers = this.activeUsers.filter(user => user.getName() !== userName);
-                    this.io.sockets.emit('active-users', this.activeUsers.map(user => {
-                        return {
-                            name: user.getName(),
-                            pubKey: user.getKey()
-                        }
-                    }))
+                    socket.broadcast.to(chatId).emit('leave')
                 })
             })
         })
+    }
+
+    reactOnChatComplete(chat) {
+        console.log('Complete', chat)
+        this.io.to(chat.chatId).emit('chat-complete', chat);
     }
 }
 

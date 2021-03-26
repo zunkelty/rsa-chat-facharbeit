@@ -1,7 +1,7 @@
 .page.setup {
-  background: #e43a15;
-  background: -webkit-gradient(linear, left top, right top, from(#e65245), to(#e43a15));
-  background: linear-gradient(to right, #e65245, #e43a15);
+  background: #3D7EAA;
+  background: -webkit-gradient(linear, left top, right top, from(#C9D2EE), to(#FFE7C3));
+  background: linear-gradient(to right, #C9D2EE, #FFE7C3);
   padding: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -21,19 +21,12 @@
 .page.setup .credits {
   font: 400 13px "Open Sans", sans-serif;
   padding-top: 15px;
-  color: white;
+  color: black;
   opacity: 0;
   -webkit-animation: fade-in 200ms;
           animation: fade-in 200ms;
   -webkit-animation-delay: 500ms;
           animation-delay: 500ms;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
-.page.setup .credits.fade-out {
-  -webkit-animation: fade-out ease-out 300ms;
-          animation: fade-out ease-out 300ms;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
@@ -61,13 +54,6 @@
           justify-content: center;
   -webkit-animation: fade-in-up ease-out 500ms;
           animation: fade-in-up ease-out 500ms;
-}
-
-.page.setup .tile.fade-out {
-  -webkit-animation: fade-out ease-out 300ms;
-          animation: fade-out ease-out 300ms;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
 }
 
 .page.setup .tile h2 {

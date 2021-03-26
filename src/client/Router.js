@@ -12,6 +12,7 @@ const SetupPage = React.lazy(() => import('./pages/Setup/Setup.page'));
 const ChatPage = React.lazy(() => import('./pages/Chat/Chat.page'));
 
 import Loader from './assets/loader-ring-black-minimized.gif';
+import MatchPage from './pages/Match/Match.page';
 
 // Add a response interceptor
 axios.interceptors.response.use(function (response) {
@@ -34,7 +35,8 @@ export default class MainRouter extends Component {
         <Suspense fallback={<div className="page loading"><img src={Loader} /><p>Wird geladen...</p></div>}>
           <Switch>
             <Route path="/" exact component={SetupPage} />
-            <Route path="/chat" exact component={ChatPage} />
+            <Route path="/match" exact component={MatchPage} />
+            <Route path="/chat/:chatId" exact component={ChatPage} />
             <Route children={<p>Hier ist nichts zu sehen. Hast du einen falschen Link?</p>} />
           </Switch>
         </Suspense>

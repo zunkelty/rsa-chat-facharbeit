@@ -1,25 +1,20 @@
 .page.setup {
-    background: #e43a15;
-    background: linear-gradient(to right, #e65245, #e43a15);
+    background: #3D7EAA;
+    background: linear-gradient(to right, #C9D2EE, #FFE7C3);
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    .credits{
+    .credits {
         font: 400 13px "Open Sans", sans-serif;
         padding-top: 15px;
-        color: rgba(255, 255, 255, 1);
+        color: black;
         opacity: 0;
         animation: fade-in 200ms;
         animation-delay: 500ms;
         animation-fill-mode: forwards;
-
-        &.fade-out{
-            animation: fade-out ease-out 300ms;
-            animation-fill-mode: forwards;
-        }
     }
 
     .tile {
@@ -34,11 +29,6 @@
         align-items: stretch;
         justify-content: center;
         animation: fade-in-up ease-out 500ms;
-        
-        &.fade-out{
-            animation: fade-out ease-out 300ms;
-            animation-fill-mode: forwards;
-        }
 
         h2 {
             font: 700 30px "Roboto", sans-serif;
@@ -106,31 +96,34 @@
     }
 }
 
-@keyframes fade-in-up{
-    0%{
+@keyframes fade-in-up {
+    0% {
         opacity: 0;
         transform: translateY(-100px);
     }
-    100%{   
+
+    100% {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-@keyframes fade-in{
-    0%{
+@keyframes fade-in {
+    0% {
         opacity: 0;
     }
-    100%{
+
+    100% {
         opacity: 1;
     }
 }
 
-@keyframes fade-out{
-    0%{
+@keyframes fade-out {
+    0% {
         opacity: 1;
     }
-    100%{
+
+    100% {
         opacity: 0;
     }
 }

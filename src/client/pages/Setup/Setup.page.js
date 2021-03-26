@@ -25,7 +25,6 @@ class Setup extends Component {
     }
 
     keyDown(e) {
-        console.log(e.key);
         if (e.key === 'Enter') {
             this.submitName();
         }
@@ -37,7 +36,7 @@ class Setup extends Component {
                 isLoading: true
             })
             setTimeout(() => {
-                this.props.history.push('/chat?name='+encodeURI(this.state.name.trim()));
+                this.props.history.push('/match?name='+encodeURI(this.state.name.trim()));
             }, 700); //Wait for fade-out effect to finish
         }else{
             this.setState({
@@ -49,8 +48,8 @@ class Setup extends Component {
     render() {
         return (
             <div className="page setup">
-                <div className={"tile"+(this.state.isLoading ? ' fade-out' : '')}>
-                    <h2>Entdecke, wie Ende-zu-Ende-Verschlüsselung funktioniert</h2>
+                <div className={"tile"}>
+                    <h2>Probiere aus, wie Ende-zu-Ende-Verschlüsselung funktioniert</h2>
                     <h3>Chatte mit RSA-Verschlüsselung</h3>
                     <span className="textfield">
                         <p>Namensabkürzung auf Schulen-Hannover</p>
@@ -62,7 +61,7 @@ class Setup extends Component {
                         <img src={Loader}></img>
                     </span>}
                 </div>
-                <p className={"credits"+(this.state.isLoading ? ' fade-out' : '')}>von Sönke Peters</p>
+                <p className={"credits"}>von Sönke Peters</p>
             </div>
         );
     }
