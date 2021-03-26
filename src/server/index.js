@@ -10,7 +10,6 @@ const apiManager = new ApiManager(io);
 const path = require('path');
 
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const helmet = require('helmet');
 const { ieNoOpen } = require('helmet');
@@ -18,7 +17,6 @@ const { ieNoOpen } = require('helmet');
 app.disable("X-Powered-By");
 
 app.use(cors());
-app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(helmet({
     contentSecurityPolicy: false

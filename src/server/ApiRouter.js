@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const path = require('path');
 const { v4: uuid } = require('uuid');
