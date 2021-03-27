@@ -1,0 +1,186 @@
+.page.presentation {
+    background: #3D7EAA;
+    background: linear-gradient(to right, #C9D2EE, #FFE7C3);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .loading {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        font: 500 14px "Open Sans", sans-serif;
+
+        img {
+            width: 30px;
+        }
+
+        animation: fade-in ease-out 500ms forwards;
+    }
+
+    .tile {
+        width: 100%;
+        max-width: 600px;
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+        padding: 25px 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        animation: fade-in-up ease-out 500ms;
+
+        .seperator {
+            height: .3px;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            margin: 15px 0;
+        }
+
+        h2 {
+            font: 700 30px "Roboto", sans-serif;
+            // padding-bottom: 20px;
+        }
+
+        h3 {
+            font: 500 18px "Open Sans", sans-serif;
+            padding-bottom: 10px;
+            overflow-wrap: break-word;
+        }
+    }
+
+    .partner, .you{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .step.four .graphic-presentation{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        
+        p{
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            font: 500 15px "Open Sans", sans-serif;
+        }
+
+        img{
+            width: 35px;
+        }
+
+        .partner{
+            position: relative;
+
+            .key{
+                position: absolute;
+                top: 10px;
+                transform: translateX(calc(-100% - 15px));
+                animation: blink 3s linear infinite;
+                opacity: 0;
+            }
+        }
+
+        .you{
+            position: relative;
+
+            .key{
+                position: absolute;
+                top: 10px;
+                transform: translateX(calc(100% + 10px));
+                animation: move-right-fade-out 3s ease-in-out infinite;
+            }
+        }
+    }
+
+    .step.five .graphic-presentation{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        
+        p{
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            font: 500 15px "Open Sans", sans-serif;
+        }
+
+        img{
+            width: 35px;
+        }
+
+        .partner{
+            position: relative;
+
+            .key{
+                position: absolute;
+                top: 10px;
+                transform: translateX(calc(-100% - 15px));
+                animation: move-left-fade-out 3s ease-in-out infinite;
+                opacity: 0;
+            }
+        }
+        
+        .you{
+            position: relative;
+            
+            .key{
+                position: absolute;
+                top: 10px;
+                transform: translateX(calc(100% + 10px));
+                animation: blink 3s linear infinite;
+            }
+        }
+    }
+
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes blink{
+    0%, 49%{
+        opacity: 0;
+    }
+    50%, 99%{
+        opacity: 1;
+    }
+}
+
+@keyframes move-right-fade-out{
+    0%{
+        transform: translateX(calc(100% + 10px));
+        opacity: 1;
+    }
+    50%, 100%{
+        transform: translateX(Min(50vw, 450px));
+        opacity: 0;
+    }
+}
+@keyframes move-left-fade-out{
+    0%{
+        transform: translateX(calc(-100% - 15px));
+        opacity: 1;
+    }
+    50%, 100%{
+        transform: translateX(Max(-50vw, -450px));
+        opacity: 0;
+    }
+}

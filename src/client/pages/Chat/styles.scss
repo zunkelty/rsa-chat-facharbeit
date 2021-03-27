@@ -20,6 +20,10 @@
         justify-content: center;
         animation: fade-in-up ease-out 500ms;
 
+        &.fade-out{
+            animation: fade-out ease-out 500ms forwards;
+        }
+
         h2 {
             font: 700 30px "Roboto", sans-serif;
             padding-bottom: 15px;
@@ -70,8 +74,11 @@
                     }
 
                     border-radius: 13px;
-                    font: 500 15px "Open Sans",
-                    sans-serif;
+
+                    p {
+                        font: 500 15px "Open Sans", sans-serif;
+                        text-align: start;
+                    }
                 }
 
                 .sender-tag {
@@ -145,5 +152,15 @@
     100% {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
     }
 }

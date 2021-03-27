@@ -7,6 +7,9 @@ class SocketManager {
         this.setup();
 
         this.onJoinedChat = () => { };
+        this.onChatKilled = () => { };
+
+        this.currentPresentationStep = 0;
     }
 
     setup() {
@@ -26,8 +29,30 @@ class SocketManager {
 
                 socket.on('disconnect', () => {
                     socket.broadcast.to(chatId).emit('leave')
+                    this.onChatKilled(chatId);
                 })
             })
+            socket.on('join-admin', adminCode => {
+                if(process.env.ADMIN_CODE = adminCode){
+                    socket.emit('admin-joined');
+
+                    socket.on('start-presentation', adminCode => {
+                        if(process.env.ADMIN_CODE !== adminCode) return;
+                        this.io.emit('start-presentation');
+                        this.currentPresentationStep = 0;
+                    })
+
+                    socket.on('goto-step', (step, adminCode) => {
+                        if(process.env.ADMIN_CODE !== adminCode) return;
+                        this.currentPresentationStep = step;
+                        this.io.emit('presentation-step', step);
+                    })
+
+                }
+            })
+            socket.on('join-presentation', () => {
+                socket.emit('joined-presentation', this.currentPresentationStep);
+            });
         })
     }
 

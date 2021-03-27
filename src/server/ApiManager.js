@@ -21,6 +21,7 @@ class ApiManager{
         this.userMatcher.onMatched = (match1, match2) => this.chatManager.reactOnMatched(match1, match2);
 
         this.socketManager.onJoinChat = (chatId, userId, userName, publicKey) => this.chatManager.reactOnJoinChat(chatId, userId, userName, publicKey);
+        this.socketManager.onChatKilled = (chatId) => this.chatManager.reactOnChatKilled(chatId);
 
         this.chatManager.onChatComplete = (chat) => this.socketManager.reactOnChatComplete(chat);
     }

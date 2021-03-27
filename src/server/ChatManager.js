@@ -35,6 +35,10 @@ class ChatManager {
         }
     }
 
+    reactOnChatKilled(chatId){
+        this.chats = this.chats.filter(chat => chat.chatId !== chatId)
+    }
+
     findChatWithUser(id) {
         return this.chats.find(item => item.match1 === id || item.match2 === id)
     }

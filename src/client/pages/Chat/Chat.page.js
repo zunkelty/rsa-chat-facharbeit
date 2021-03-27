@@ -27,7 +27,8 @@ class Chat extends Component {
             partnerPubKey: '',
             partnerName: '',
             messages: [],
-            message: ''
+            message: '',
+            fadeOut: false
         }
 
         if (queryString.parse(this.props.location.search).name === undefined) {
@@ -43,6 +44,9 @@ class Chat extends Component {
                 pubKey: keys.publicKey,
                 privateKey: keys.privateKey
             })
+            localStorage.setItem('ownPubKey', JSON.stringify(keys.publicKey.n));
+            localStorage.setItem('ownPrivateKey', JSON.stringify(keys.privateKey.d));
+            console.log('Keypair', keys)
             this.connectSockets(keys.publicKey);
         });
     }
@@ -72,7 +76,7 @@ class Chat extends Component {
                         isLoading: false
                     })
                 }
-                localStorage.setItem('partnerPubKey', this.state.partnerPubKey);
+                localStorage.setItem('partnerPubKey', JSON.stringify(this.state.partnerPubKey.n));
                 localStorage.setItem('partnerName', this.state.partnerName);
                 localStorage.setItem('ownName', this.state.name);
             });
@@ -87,11 +91,32 @@ class Chat extends Component {
                                 message: decrypted
                             })
                         })
+                        localStorage.setItem('receivedEncryptedMessage', this.abbreviateString(encrypted, 30));
+                        localStorage.setItem('receivedDecryptedMessage', this.abbreviateString(decrypted, 30));
                     })
             })
 
             this.socket.on('leave', () => {
                 this.props.history.push('/match?name=' + this.state.name + '&abandoned=true')
+            })
+
+            this.socket.on('start-presentation', () => {
+                if (localStorage.getItem('sentEncryptedMessage') === undefined || localStorage.getItem('receivedDecryptedMessage') === undefined) {
+                    localStorage.setItem('sentEncryptedMessage', 'Beispielverschlüsselung')
+                    localStorage.setItem('sentDecryptedMessage', 'Beispielnachricht')
+                    localStorage.setItem('receivedDecryptedMessage', 'Beispielnachricht')
+                    localStorage.setItem('receivedEncryptedMessage', 'Beispielverschlüsselung')
+                    localStorage.setItem('ownName', this.state.name);
+                    localStorage.setItem('partnerName', 'Beispielname')
+                    localStorage.setItem('partnerPubKey', 'Beispielschlüssel (öffentlich)');
+                    localStorage.setItem('ownPubKey', 'Beispielschlüssel (öffentlich)');
+                    localStorage.setItem('ownPrivateKey', 'Beispielschlüssel (privat)');
+                }else{
+                    this.setState({
+                        fadeOut: true
+                    })
+                    setTimeout(() => this.props.history.push('/presentation'), 500);
+                }
             })
 
         })
@@ -110,7 +135,7 @@ class Chat extends Component {
     }
 
     submitMessage(message) {
-        if(message.length === 0) return;
+        if (message.length === 0) return;
         this.setState({
             message: '',
             messages: this.state.messages.concat({
@@ -121,6 +146,8 @@ class Chat extends Component {
         encryptMessage(message, this.state.partnerPubKey)
             .then(encrypted => {
                 this.socket.emit('message', encrypted);
+                localStorage.setItem('sentDecryptedMessage', this.abbreviateString(message, 30));
+                localStorage.setItem('sentEncryptedMessage', this.abbreviateString(encrypted, 30));
             })
     }
 
@@ -136,10 +163,18 @@ class Chat extends Component {
         })
     }
 
+    abbreviateString(string, maxLength){
+        if(string.toString().length > (maxLength - 3)){
+            return string.toString().slice(0, maxLength-3)+'...';
+        }else{
+            return string;
+        }
+    }
+
     render() {
         return (
             <div className="page chat">
-                {!this.state.isLoading && <div className="tile">
+                {!this.state.isLoading && <div className={"tile"+(this.state.fadeOut ? ' fade-out' : '')}>
                     <h3>Du schreibst mit: {this.state.partnerName}</h3>
                     <div className="seperator" />
                     <div className="messages">
