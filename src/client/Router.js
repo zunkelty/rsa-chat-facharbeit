@@ -14,6 +14,7 @@ import Loader from './assets/loader-ring-black-minimized.gif';
 import MatchPage from './pages/Match/Match.page';
 import AdminPage from './pages/Admin/Admin.page';
 import PresentationPage from './pages/Presentation/Presentation.page';
+import Presentation from './pages/v2/Presentation/Presentation.page';
 
 // Add a response interceptor
 axios.interceptors.response.use(function (response) {
@@ -35,11 +36,12 @@ export default class MainRouter extends Component {
       <Router>
         <Suspense fallback={<div className="page loading"><img src={Loader} /><p>Wird geladen...</p></div>}>
           <Switch>
-            <Route path="/" exact component={SetupPage} />
-            <Route path="/match" exact component={MatchPage} />
-            <Route path="/chat/:chatId" exact component={ChatPage} />
+            {/* <Route path="/" exact component={SetupPage} /> */}
+            {/* <Route path="/match" exact component={MatchPage} /> */}
+            {/* <Route path="/chat/:chatId" exact component={ChatPage} /> */}
             <Route path="/admin" exact component={AdminPage} />
-            <Route path="/presentation" exact component={PresentationPage} />
+            {/* <Route path="/presentation" exact component={PresentationPage} /> */}
+            <Route path="/" exact component={Presentation}/>
             <Route children={<p>Hier ist nichts zu sehen. Hast du einen falschen Link?</p>} />
           </Switch>
         </Suspense>

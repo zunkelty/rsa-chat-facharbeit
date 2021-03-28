@@ -3,10 +3,13 @@ import React, { Component } from 'react';
 import queryString from 'query-string';
 
 import Loader from '../../assets/loader-ring-black-minimized.gif';
+import NextSlide from '../../assets/skip_next_black_24dp.svg';
+import PrevSlide from '../../assets/skip_previous_black_24dp.svg';
 
 import './styles.css';
 
 import { loadSocketIo } from '../../helpers/scriptHelpers';
+import Presentation from '../v2/Presentation/Presentation.page';
 
 class Admin extends Component {
 
@@ -48,19 +51,11 @@ class Admin extends Component {
     render() {
         return (
             <div className="page admin">
-                {!this.state.isLoading && <div className="tile">
-                    <button className="submit" onClick={() => this.socket.emit('start-presentation', this.state.adminCode)}>Präsentation anzeigen</button>
-                    <button className="submit" onClick={() => this.socket.emit('goto-step', 1, this.state.adminCode)}>Schritt 1: Schlüsselpaar erzeugen</button>
-                    <button className="submit" onClick={() => this.socket.emit('goto-step', 2, this.state.adminCode)}>Öffentlichen Schlüssel zeigen</button>
-                    <button className="submit" onClick={() => this.socket.emit('goto-step', 3, this.state.adminCode)}>Privaten Schlüssel zeigen</button>
-                    <button className="submit" onClick={() => this.socket.emit('goto-step', 4, this.state.adminCode)}>1.1 Sende öffentlichen Schlüssel an Chatpartner</button>
-                    <button className="submit" onClick={() => this.socket.emit('goto-step', 5, this.state.adminCode)}>1.2 Empfange öffentlichen Schlüssel von Chatpartner</button>
-                    <button className="submit" onClick={() => this.socket.emit('goto-step', 6, this.state.adminCode)}>Bereit zum Chatten!</button>
-                    <button className="submit" onClick={() => this.socket.emit('goto-step', 7, this.state.adminCode)}>Schritt 7</button>
-                    <button className="submit" onClick={() => this.socket.emit('goto-step', 8, this.state.adminCode)}>Schritt 8</button>
-                    <button className="submit" onClick={() => this.socket.emit('goto-step', 9, this.state.adminCode)}>Schritt 9</button>
-                    <button className="submit" onClick={() => this.socket.emit('goto-step', 10, this.state.adminCode)}>Schritt 10</button>
-                </div>}
+                {!this.state.isLoading && <>
+                    <Presentation />
+                    <button className="presentation-option next-slide" onClick={() => this.socket.emit('next-slide', this.state.adminCode)}><img src={NextSlide} alt="Weiter"/></button>
+                    <button className="presentation-option prev-slide" onClick={() => this.socket.emit('prev-slide', this.state.adminCode)}><img src={PrevSlide} alt="Zurück"/></button>
+                </>}
                 {this.state.isLoading && <div className="loading">
                     <img src={Loader} alt="Wird geladen" />
                     <p>Wird geladen...</p>

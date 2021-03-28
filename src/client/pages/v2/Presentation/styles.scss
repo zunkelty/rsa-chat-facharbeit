@@ -1,0 +1,49 @@
+.page.v2-presentation {
+    background: #3D7EAA;
+    background: linear-gradient(to right, #C9D2EE, #FFE7C3);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .loading {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        font: 500 14px "Open Sans", sans-serif;
+
+        img {
+            width: 30px;
+        }
+
+        animation: fade-in ease-out 500ms forwards;
+    }
+
+    .presentation-wrapper{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+    }
+
+    .step{
+        transition: opacity 500ms;
+        animation: fade-in 500ms ease;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

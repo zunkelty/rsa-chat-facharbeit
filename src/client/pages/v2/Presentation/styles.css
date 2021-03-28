@@ -1,0 +1,85 @@
+.page.v2-presentation {
+  background: #3D7EAA;
+  background: -webkit-gradient(linear, left top, right top, from(#C9D2EE), to(#FFE7C3));
+  background: linear-gradient(to right, #C9D2EE, #FFE7C3);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.page.v2-presentation .loading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font: 500 14px "Open Sans", sans-serif;
+  -webkit-animation: fade-in ease-out 500ms forwards;
+          animation: fade-in ease-out 500ms forwards;
+}
+
+.page.v2-presentation .loading img {
+  width: 30px;
+}
+
+.page.v2-presentation .presentation-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.page.v2-presentation .step {
+  -webkit-transition: opacity 500ms;
+  transition: opacity 500ms;
+  -webkit-animation: fade-in 500ms ease;
+          animation: fade-in 500ms ease;
+}
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=styles.css.map */
