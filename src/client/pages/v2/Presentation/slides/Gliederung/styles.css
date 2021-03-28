@@ -100,6 +100,10 @@
 
 .slide.gliederung .timeline .point.quiz div {
   border: 4px solid gold;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 350px;
 }
 
 .slide.gliederung .scroll-down-container {
