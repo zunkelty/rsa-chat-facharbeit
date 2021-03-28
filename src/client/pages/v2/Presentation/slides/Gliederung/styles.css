@@ -104,6 +104,7 @@
   width: -moz-max-content;
   width: max-content;
   max-width: 350px;
+  min-width: 200px;
 }
 
 .slide.gliederung .scroll-down-container {
