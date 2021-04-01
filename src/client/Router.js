@@ -37,8 +37,8 @@ export default class MainRouter extends Component {
         <Suspense fallback={<div className="page loading"><img src={Loader} /><p>Wird geladen...</p></div>}>
           <Switch>
             {/* <Route path="/" exact component={SetupPage} /> */}
-            {/* <Route path="/match" exact component={MatchPage} /> */}
-            {/* <Route path="/chat/:chatId" exact component={ChatPage} /> */}
+            <Route path="/match" exact component={MatchPage} />
+            <Route path="/chat/:chatId" exact component={ChatPage} />
             <Route path="/admin" exact component={AdminPage} />
             {/* <Route path="/presentation" exact component={PresentationPage} /> */}
             <Route path="/" exact component={Presentation}/>

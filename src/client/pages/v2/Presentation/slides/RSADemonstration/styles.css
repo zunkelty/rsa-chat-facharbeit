@@ -1,0 +1,43 @@
+.slide.rsa-demo {
+  background: white;
+  border-radius: 15px;
+  -webkit-box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 25px 40px;
+  margin: 5%;
+  -ms-flex-item-align: center;
+      align-self: center;
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  position: relative;
+}
+
+.slide.rsa-demo h2 {
+  font: 600 30px "Roboto", sans-serif;
+}
+
+.slide.rsa-demo h3 {
+  font: 500 22px "Open Sans", sans-serif;
+  margin-bottom: 15px;
+}
+
+.slide.rsa-demo .seperator {
+  height: .3px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  margin: 10px 0;
+  margin-bottom: 30px;
+}
+/*# sourceMappingURL=styles.css.map */

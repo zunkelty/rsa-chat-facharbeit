@@ -10,6 +10,7 @@ class SocketManager {
         this.onChatKilled = () => { };
 
         this.currentPresentationStep = 0;
+        this.statuses = {};
     }
 
     setup() {
@@ -56,18 +57,28 @@ class SocketManager {
 
                     socket.on('prev-slide', (adminCode) => {
                         if (process.env.ADMIN_CODE !== adminCode) return;
-                        if(this.currentPresentationStep - 1 < 0) return;
+                        if (this.currentPresentationStep - 1 < 0) return;
                         this.currentPresentationStep = this.currentPresentationStep - 1;
                         this.io.emit('v2/presentation-step', this.currentPresentationStep);
                     })
 
                 }
             })
-            socket.on('join-presentation', () => {
-                socket.emit('joined-presentation', this.currentPresentationStep);
-            });
             socket.on('v2/join-presentation', () => {
                 socket.emit('v2/joined-presentation', this.currentPresentationStep);
+
+                socket.on('track', (status) => {
+                    switch (status) {
+                        case "started-quiz":
+                            this.statuses['doing-quiz'] = (this.statuses['doing-quiz'] + 1 || 1);
+                            break;
+                        case "finished-quiz":
+                            this.statuses['doing-quiz'] = (this.statuses['doing-quiz'] - 1 || 0);
+                            break;
+                    }
+                    console.log('Status update', this.statuses)
+                    this.io.emit('status-update', this.statuses);
+                })
             });
         })
     }

@@ -10,7 +10,7 @@ const Gliederung = props => {
             <div className="timeline">
                 <div className="point" style={{ marginTop: '30px' }}>
                     <div className="left">
-                        <h3>1. Wozu braucht man Verschlüsselung?</h3>
+                        <h3>1. Was ist Verschlüsselung?</h3>
                     </div>
                 </div>
                 <div className="point" style={{ marginTop: '200px' }}>
@@ -18,29 +18,24 @@ const Gliederung = props => {
                         <h3>2. Symmetrische und asymmetrische Verschlüsselung</h3>
                     </div>
                 </div>
-                <div className="point quiz" style={{ marginTop: '370px' }}>
+                {/* <div className="point quiz" style={{ marginTop: '370px' }}>
                     <div className="tile left">
                         <h3>Mini-Quiz</h3>
+                    </div>
+                </div> */}
+                <div className="point" style={{ marginTop: '370px' }}>
+                    <div className="tile left">
+                        <h3>3. Was ist RSA-Verschlüsselung?</h3>
                     </div>
                 </div>
                 <div className="point" style={{ marginTop: '550px' }}>
                     <div className="tile right">
-                        <h3>3. Was ist RSA-Verschlüsselung?</h3>
-                    </div>
-                </div>
-                <div className="point" style={{ marginTop: '720px' }}>
-                    <div className="tile left">
                         <h3>4. Ablauf einer Verschlüsselung</h3>
                     </div>
                 </div>
-                <div className="point quiz" style={{ marginTop: '890px' }}>
-                    <div className="tile right">
-                        <h3>Mini-Quiz</h3>
-                    </div>
-                </div>
-                <div className="point" style={{ marginTop: '1060px' }}>
+                <div className="point quiz" style={{ marginTop: '720px' }}>
                     <div className="tile left">
-                        <h3>5. Ist Verschlüsseltes für immer verschlüsselt?</h3>
+                        <h3>Verschlüsselungs-Quiz</h3>
                     </div>
                 </div>
             </div>

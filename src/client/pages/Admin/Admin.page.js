@@ -19,6 +19,7 @@ class Admin extends Component {
         this.state = {
             adminCode: queryString.parse(this.props.location.search).admin,
             isLoading: true,
+            status: {}
         }
 
         if (queryString.parse(this.props.location.search).admin === undefined) {
@@ -45,6 +46,12 @@ class Admin extends Component {
                 })
             })
 
+            this.socket.on('status-update', (status) => {
+                this.setState({
+                    status: status
+                })
+            })
+
         })
     }
 
@@ -55,6 +62,9 @@ class Admin extends Component {
                     <Presentation />
                     <button className="presentation-option next-slide" onClick={() => this.socket.emit('next-slide', this.state.adminCode)}><img src={NextSlide} alt="Weiter"/></button>
                     <button className="presentation-option prev-slide" onClick={() => this.socket.emit('prev-slide', this.state.adminCode)}><img src={PrevSlide} alt="Zurück"/></button>
+                    {this.state.status['doing-quiz'] > 0 && <div className="tile status">
+                        <p>Im Quiz: {this.state.status['doing-quiz']}</p>
+                    </div>}
                 </>}
                 {this.state.isLoading && <div className="loading">
                     <img src={Loader} alt="Wird geladen" />

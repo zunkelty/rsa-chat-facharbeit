@@ -5,7 +5,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+
+    overflow-y: scroll;
 
     .loading {
 
@@ -55,33 +57,39 @@
         }
     }
 
-    .partner, .you{
+    .partner,
+    .you {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .step.four .graphic-presentation{
+    .step:not(.nine){
+        margin: auto 0;
+    }
+
+    .step.four .graphic-presentation {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        
-        p{
+        margin: auto 0;
+
+        p {
             margin: 0;
             padding: 0;
             text-align: center;
             font: 500 15px "Open Sans", sans-serif;
         }
 
-        img{
+        img {
             width: 35px;
         }
 
-        .partner{
+        .partner {
             position: relative;
 
-            .key{
+            .key {
                 position: absolute;
                 top: 10px;
                 transform: translateX(calc(-100% - 15px));
@@ -90,10 +98,10 @@
             }
         }
 
-        .you{
+        .you {
             position: relative;
 
-            .key{
+            .key {
                 position: absolute;
                 top: 10px;
                 transform: translateX(calc(100% + 10px));
@@ -102,27 +110,27 @@
         }
     }
 
-    .step.five .graphic-presentation{
+    .step.five .graphic-presentation {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        
-        p{
+
+        p {
             margin: 0;
             padding: 0;
             text-align: center;
             font: 500 15px "Open Sans", sans-serif;
         }
 
-        img{
+        img {
             width: 35px;
         }
 
-        .partner{
+        .partner {
             position: relative;
 
-            .key{
+            .key {
                 position: absolute;
                 top: 10px;
                 transform: translateX(calc(-100% - 15px));
@@ -130,16 +138,120 @@
                 opacity: 0;
             }
         }
-        
-        .you{
+
+        .you {
             position: relative;
-            
-            .key{
+
+            .key {
                 position: absolute;
                 top: 10px;
                 transform: translateX(calc(100% + 10px));
                 animation: blink 3s linear infinite;
+                opacity: 0;
             }
+        }
+    }
+
+    .step.eight .graphic-presentation, .step.thirteen .graphic-presentation {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        p {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            font: 500 15px "Open Sans", sans-serif;
+        }
+
+        img {
+            width: 35px;
+        }
+
+        .partner {
+            position: relative;
+
+            .encrypted {
+                position: absolute;
+                top: -15px;
+                transform: translateX(calc(-100% - 15px));
+                opacity: 0;
+                animation: blink 3s linear infinite;
+                animation-delay: 1000ms;
+            }
+        }
+
+        .you {
+            position: relative;
+
+            .decrypted {
+                position: absolute;
+                top: -15px;
+                transform: translateX(calc(100% + 10px));
+                animation: move-right-fade-out-short 3s infinite;
+            }
+        }
+
+        .encrypted-moving {
+            position: relative;
+
+            .encrypted {
+                position: absolute;
+                top: -16px;
+                transform: translateX(calc(100% + 10px));
+                animation: move-right-fade-out-encrypted 3s infinite;
+                animation-delay: 1500ms;
+                opacity: 0;
+            }
+        }
+
+    }
+
+    .step.ten .graphic-presentation, .step.twelve .graphic-presentation {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        p {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            font: 500 15px "Open Sans", sans-serif;
+        }
+
+        img {
+            width: 35px;
+        }
+
+        .partner {
+            position: relative;
+
+            .encrypted {
+                position: absolute;
+                top: 10px;
+                transform: translateX(calc(-100% - 15px));
+                animation: blink 3s linear infinite;
+                opacity: 0;
+            }
+        }
+
+        .you {
+            position: relative;
+
+            .encrypted {
+                position: absolute;
+                top: 10px;
+                transform: translateX(calc(100% + 10px));
+                animation: move-right-fade-out 3s ease-in-out infinite;
+            }
+        }
+    }
+
+    .step.twelve .graphic-presentation{
+        .you .encrypted{
+            top: -15px;
         }
     }
 
@@ -155,32 +267,71 @@
     }
 }
 
-@keyframes blink{
-    0%, 49%{
+@keyframes blink {
+
+    66%,
+    49% {
         opacity: 0;
     }
-    50%, 99%{
+
+    50%,
+    65% {
         opacity: 1;
     }
 }
 
-@keyframes move-right-fade-out{
-    0%{
+@keyframes move-right-fade-out {
+    0% {
         transform: translateX(calc(100% + 10px));
         opacity: 1;
     }
-    50%, 100%{
+
+    50%,
+    100% {
         transform: translateX(Min(50vw, 450px));
         opacity: 0;
     }
 }
-@keyframes move-left-fade-out{
-    0%{
+
+@keyframes move-left-fade-out {
+    0% {
         transform: translateX(calc(-100% - 15px));
         opacity: 1;
     }
-    50%, 100%{
+
+    50%,
+    100% {
         transform: translateX(Max(-50vw, -450px));
+        opacity: 0;
+    }
+}
+
+@keyframes move-right-fade-out-short {
+
+    0%,
+    50% {
+        transform: translateX(calc(100% + 10px));
+        opacity: 1;
+    }
+
+    50%,
+    100% {
+        transform: translateX(Min(25vw, 225px));
+        opacity: 0;
+    }
+}
+
+@keyframes move-right-fade-out-encrypted {
+
+    0%,
+    50% {
+        transform: translateX(-60%);
+        opacity: 1;
+    }
+
+    50%,
+    100% {
+        transform: translateX(Min(17vw, 150px));
         opacity: 0;
     }
 }

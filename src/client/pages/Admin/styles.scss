@@ -52,8 +52,8 @@
     //     }
 
     // }
-    
-    .presentation-option{
+
+    .presentation-option {
         position: absolute;
         right: 30px;
         outline: none;
@@ -67,17 +67,34 @@
         justify-content: center;
         cursor: pointer;
 
-        &.next-slide{
+        z-index: 5;
+
+        &.next-slide {
             bottom: 110px;
         }
 
-        &.prev-slide{
+        &.prev-slide {
             bottom: 30px;
         }
 
-        img{
+        img {
             width: 30px;
         }
+    }
+
+    .tile.status {
+        background: #fff;
+        border-radius: 15px;
+        padding: 25px 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        border: 1px solid black;
+        font: 500 15px "Open Sans", sans-serif;
     }
 
     .loading {

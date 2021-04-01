@@ -91,7 +91,7 @@ class Chat extends Component {
                                 message: decrypted
                             })
                         })
-                        localStorage.setItem('receivedEncryptedMessage', this.abbreviateString(encrypted, 30));
+                        localStorage.setItem('receivedEncryptedMessage', new TextEncoder().encode(encrypted).toString());
                         localStorage.setItem('receivedDecryptedMessage', this.abbreviateString(decrypted, 30));
                     })
             })
@@ -100,7 +100,7 @@ class Chat extends Component {
                 this.props.history.push('/match?name=' + this.state.name + '&abandoned=true')
             })
 
-            this.socket.on('start-presentation', () => {
+            this.socket.on('v2/presentation-step', () => {
                 if (localStorage.getItem('sentEncryptedMessage') === undefined || localStorage.getItem('receivedDecryptedMessage') === undefined) {
                     localStorage.setItem('sentEncryptedMessage', 'Beispielverschlüsselung')
                     localStorage.setItem('sentDecryptedMessage', 'Beispielnachricht')
@@ -111,11 +111,15 @@ class Chat extends Component {
                     localStorage.setItem('partnerPubKey', 'Beispielschlüssel (öffentlich)');
                     localStorage.setItem('ownPubKey', 'Beispielschlüssel (öffentlich)');
                     localStorage.setItem('ownPrivateKey', 'Beispielschlüssel (privat)');
-                }else{
                     this.setState({
                         fadeOut: true
                     })
-                    setTimeout(() => this.props.history.push('/presentation'), 500);
+                    setTimeout(() => this.props.history.push('/'), 500);
+                } else {
+                    this.setState({
+                        fadeOut: true
+                    })
+                    setTimeout(() => this.props.history.push('/'), 500);
                 }
             })
 
@@ -147,7 +151,7 @@ class Chat extends Component {
             .then(encrypted => {
                 this.socket.emit('message', encrypted);
                 localStorage.setItem('sentDecryptedMessage', this.abbreviateString(message, 30));
-                localStorage.setItem('sentEncryptedMessage', this.abbreviateString(encrypted, 30));
+                localStorage.setItem('sentEncryptedMessage', encrypted);
             })
     }
 
@@ -163,10 +167,10 @@ class Chat extends Component {
         })
     }
 
-    abbreviateString(string, maxLength){
-        if(string.toString().length > (maxLength - 3)){
-            return string.toString().slice(0, maxLength-3)+'...';
-        }else{
+    abbreviateString(string, maxLength) {
+        if (string.toString().length > (maxLength - 3)) {
+            return string.toString().slice(0, maxLength - 3) + '...';
+        } else {
             return string;
         }
     }
@@ -174,7 +178,7 @@ class Chat extends Component {
     render() {
         return (
             <div className="page chat">
-                {!this.state.isLoading && <div className={"tile"+(this.state.fadeOut ? ' fade-out' : '')}>
+                {!this.state.isLoading && <div className={"tile" + (this.state.fadeOut ? ' fade-out' : '')}>
                     <h3>Du schreibst mit: {this.state.partnerName}</h3>
                     <div className="seperator" />
                     <div className="messages">

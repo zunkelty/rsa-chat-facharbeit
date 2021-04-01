@@ -13,9 +13,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  overflow-y: scroll;
 }
 
 .page.presentation .loading {
@@ -83,7 +84,8 @@
   overflow-wrap: break-word;
 }
 
-.page.presentation .partner, .page.presentation .you {
+.page.presentation .partner,
+.page.presentation .you {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -94,6 +96,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.page.presentation .step:not(.nine) {
+  margin: auto 0;
 }
 
 .page.presentation .step.four .graphic-presentation {
@@ -110,6 +116,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin: auto 0;
 }
 
 .page.presentation .step.four .graphic-presentation p {
@@ -202,6 +209,137 @@
           transform: translateX(calc(100% + 10px));
   -webkit-animation: blink 3s linear infinite;
           animation: blink 3s linear infinite;
+  opacity: 0;
+}
+
+.page.presentation .step.eight .graphic-presentation, .page.presentation .step.thirteen .graphic-presentation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.page.presentation .step.eight .graphic-presentation p, .page.presentation .step.thirteen .graphic-presentation p {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font: 500 15px "Open Sans", sans-serif;
+}
+
+.page.presentation .step.eight .graphic-presentation img, .page.presentation .step.thirteen .graphic-presentation img {
+  width: 35px;
+}
+
+.page.presentation .step.eight .graphic-presentation .partner, .page.presentation .step.thirteen .graphic-presentation .partner {
+  position: relative;
+}
+
+.page.presentation .step.eight .graphic-presentation .partner .encrypted, .page.presentation .step.thirteen .graphic-presentation .partner .encrypted {
+  position: absolute;
+  top: -15px;
+  -webkit-transform: translateX(calc(-100% - 15px));
+          transform: translateX(calc(-100% - 15px));
+  opacity: 0;
+  -webkit-animation: blink 3s linear infinite;
+          animation: blink 3s linear infinite;
+  -webkit-animation-delay: 1000ms;
+          animation-delay: 1000ms;
+}
+
+.page.presentation .step.eight .graphic-presentation .you, .page.presentation .step.thirteen .graphic-presentation .you {
+  position: relative;
+}
+
+.page.presentation .step.eight .graphic-presentation .you .decrypted, .page.presentation .step.thirteen .graphic-presentation .you .decrypted {
+  position: absolute;
+  top: -15px;
+  -webkit-transform: translateX(calc(100% + 10px));
+          transform: translateX(calc(100% + 10px));
+  -webkit-animation: move-right-fade-out-short 3s infinite;
+          animation: move-right-fade-out-short 3s infinite;
+}
+
+.page.presentation .step.eight .graphic-presentation .encrypted-moving, .page.presentation .step.thirteen .graphic-presentation .encrypted-moving {
+  position: relative;
+}
+
+.page.presentation .step.eight .graphic-presentation .encrypted-moving .encrypted, .page.presentation .step.thirteen .graphic-presentation .encrypted-moving .encrypted {
+  position: absolute;
+  top: -16px;
+  -webkit-transform: translateX(calc(100% + 10px));
+          transform: translateX(calc(100% + 10px));
+  -webkit-animation: move-right-fade-out-encrypted 3s infinite;
+          animation: move-right-fade-out-encrypted 3s infinite;
+  -webkit-animation-delay: 1500ms;
+          animation-delay: 1500ms;
+  opacity: 0;
+}
+
+.page.presentation .step.ten .graphic-presentation, .page.presentation .step.twelve .graphic-presentation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.page.presentation .step.ten .graphic-presentation p, .page.presentation .step.twelve .graphic-presentation p {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font: 500 15px "Open Sans", sans-serif;
+}
+
+.page.presentation .step.ten .graphic-presentation img, .page.presentation .step.twelve .graphic-presentation img {
+  width: 35px;
+}
+
+.page.presentation .step.ten .graphic-presentation .partner, .page.presentation .step.twelve .graphic-presentation .partner {
+  position: relative;
+}
+
+.page.presentation .step.ten .graphic-presentation .partner .encrypted, .page.presentation .step.twelve .graphic-presentation .partner .encrypted {
+  position: absolute;
+  top: 10px;
+  -webkit-transform: translateX(calc(-100% - 15px));
+          transform: translateX(calc(-100% - 15px));
+  -webkit-animation: blink 3s linear infinite;
+          animation: blink 3s linear infinite;
+  opacity: 0;
+}
+
+.page.presentation .step.ten .graphic-presentation .you, .page.presentation .step.twelve .graphic-presentation .you {
+  position: relative;
+}
+
+.page.presentation .step.ten .graphic-presentation .you .encrypted, .page.presentation .step.twelve .graphic-presentation .you .encrypted {
+  position: absolute;
+  top: 10px;
+  -webkit-transform: translateX(calc(100% + 10px));
+          transform: translateX(calc(100% + 10px));
+  -webkit-animation: move-right-fade-out 3s ease-in-out infinite;
+          animation: move-right-fade-out 3s ease-in-out infinite;
+}
+
+.page.presentation .step.twelve .graphic-presentation .you .encrypted {
+  top: -15px;
 }
 
 @-webkit-keyframes fade-in {
@@ -223,19 +361,23 @@
 }
 
 @-webkit-keyframes blink {
-  0%, 49% {
+  66%,
+  49% {
     opacity: 0;
   }
-  50%, 99% {
+  50%,
+  65% {
     opacity: 1;
   }
 }
 
 @keyframes blink {
-  0%, 49% {
+  66%,
+  49% {
     opacity: 0;
   }
-  50%, 99% {
+  50%,
+  65% {
     opacity: 1;
   }
 }
@@ -246,7 +388,8 @@
             transform: translateX(calc(100% + 10px));
     opacity: 1;
   }
-  50%, 100% {
+  50%,
+  100% {
     -webkit-transform: translateX(Min(50vw, 450px));
             transform: translateX(Min(50vw, 450px));
     opacity: 0;
@@ -259,7 +402,8 @@
             transform: translateX(calc(100% + 10px));
     opacity: 1;
   }
-  50%, 100% {
+  50%,
+  100% {
     -webkit-transform: translateX(Min(50vw, 450px));
             transform: translateX(Min(50vw, 450px));
     opacity: 0;
@@ -272,7 +416,8 @@
             transform: translateX(calc(-100% - 15px));
     opacity: 1;
   }
-  50%, 100% {
+  50%,
+  100% {
     -webkit-transform: translateX(Max(-50vw, -450px));
             transform: translateX(Max(-50vw, -450px));
     opacity: 0;
@@ -285,9 +430,70 @@
             transform: translateX(calc(-100% - 15px));
     opacity: 1;
   }
-  50%, 100% {
+  50%,
+  100% {
     -webkit-transform: translateX(Max(-50vw, -450px));
             transform: translateX(Max(-50vw, -450px));
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes move-right-fade-out-short {
+  0%,
+  50% {
+    -webkit-transform: translateX(calc(100% + 10px));
+            transform: translateX(calc(100% + 10px));
+    opacity: 1;
+  }
+  50%,
+  100% {
+    -webkit-transform: translateX(Min(25vw, 225px));
+            transform: translateX(Min(25vw, 225px));
+    opacity: 0;
+  }
+}
+
+@keyframes move-right-fade-out-short {
+  0%,
+  50% {
+    -webkit-transform: translateX(calc(100% + 10px));
+            transform: translateX(calc(100% + 10px));
+    opacity: 1;
+  }
+  50%,
+  100% {
+    -webkit-transform: translateX(Min(25vw, 225px));
+            transform: translateX(Min(25vw, 225px));
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes move-right-fade-out-encrypted {
+  0%,
+  50% {
+    -webkit-transform: translateX(-60%);
+            transform: translateX(-60%);
+    opacity: 1;
+  }
+  50%,
+  100% {
+    -webkit-transform: translateX(Min(17vw, 150px));
+            transform: translateX(Min(17vw, 150px));
+    opacity: 0;
+  }
+}
+
+@keyframes move-right-fade-out-encrypted {
+  0%,
+  50% {
+    -webkit-transform: translateX(-60%);
+            transform: translateX(-60%);
+    opacity: 1;
+  }
+  50%,
+  100% {
+    -webkit-transform: translateX(Min(17vw, 150px));
+            transform: translateX(Min(17vw, 150px));
     opacity: 0;
   }
 }

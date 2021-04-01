@@ -36,7 +36,8 @@ class Setup extends Component {
                 isLoading: true
             })
             setTimeout(() => {
-                this.props.history.push('/match?name='+encodeURI(this.state.name.trim()));
+                this.props.jumpToPage('/match?name='+encodeURI(this.state.name.trim()))
+                // this.props.history.push('/match?name='+encodeURI(this.state.name.trim()));
             }, 700); //Wait for fade-out effect to finish
         }else{
             this.setState({
@@ -49,8 +50,7 @@ class Setup extends Component {
         return (
             <div className="page setup">
                 <div className={"tile"}>
-                    <h2>Probiere aus, wie Ende-zu-Ende-Verschlüsselung funktioniert</h2>
-                    <h3>Chatte mit RSA-Verschlüsselung</h3>
+                    <h2>Chatte mit RSA-Verschlüsselung</h2>
                     <span className="textfield">
                         <p>Namensabkürzung auf Schulen-Hannover</p>
                         <input type="text" value={this.state.name} onChange={(e) => this.handleNameChange(e)} onKeyDown={(e) => this.keyDown(e)} autoComplete="none" placeholder="z.B. maxmus" />
@@ -61,7 +61,6 @@ class Setup extends Component {
                         <img src={Loader}></img>
                     </span>}
                 </div>
-                <p className={"credits"}>von Sönke Peters</p>
             </div>
         );
     }

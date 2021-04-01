@@ -35,6 +35,7 @@
       -ms-flex-pack: center;
           justify-content: center;
   cursor: pointer;
+  z-index: 5;
 }
 
 .page.admin .presentation-option.next-slide {
@@ -47,6 +48,30 @@
 
 .page.admin .presentation-option img {
   width: 30px;
+}
+
+.page.admin .tile.status {
+  background: #fff;
+  border-radius: 15px;
+  padding: 25px 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  border: 1px solid black;
+  font: 500 15px "Open Sans", sans-serif;
 }
 
 .page.admin .loading {
