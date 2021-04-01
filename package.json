@@ -16,8 +16,9 @@
     ]
   },
   "scripts": {
+    "prestart": "npm install --only=dev",
     "build": "webpack --mode production",
-    "start": "npm install --only=dev && npm run build && node src/server/index.js",
+    "start": "npm run build && node src/server/index.js",
     "devStart": "npm run build && node src/server/index.js",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "server": "nodemon src/server/index.js",
