@@ -15,6 +15,11 @@ class ApiRouter {
     setup() {
         router.use(bodyParser.json());
 
+        router.use((req, res, next) => {
+            console.log(req);
+            next();
+        })
+
         router.get('/ping', (req, res) => {
             res.status(200).send('PONG');
         })
@@ -34,7 +39,7 @@ class ApiRouter {
             if (!userId) return res.sendStatus(400);
             let chat = this.onCheckHasUserMatched(userId);
             if (chat !== undefined) {
-                res.status(200).json({'status': 'found', 'chatId': chat.chatId})
+                res.status(200).json({ 'status': 'found', 'chatId': chat.chatId })
             } else {
                 console.log('Has not matched')
                 res.status(200).json({ 'status': 'open' })

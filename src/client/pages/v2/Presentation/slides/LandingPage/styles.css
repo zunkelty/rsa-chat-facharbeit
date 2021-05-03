@@ -20,6 +20,7 @@
       -ms-flex-pack: center;
           justify-content: center;
   position: relative;
+  max-height: calc(calc(var(--vh, 1vh) * 100) - calc(var(--vh, 1vh) * 10) - 100px);
 }
 
 .slide.landing-page h2 {
