@@ -31,15 +31,15 @@ class Setup extends Component {
     }
 
     submitName() {
-        if(this.state.nameError === '' && this.state.name.trim() !== ''){
+        if (this.state.nameError === '' && this.state.name.trim() !== '') {
             this.setState({
                 isLoading: true
             })
-            setTimeout(() => {
-                this.props.jumpToPage('/match?name='+encodeURI(this.state.name.trim()))
+            setTimeout(() =>
+                location.replace('/match?name=' + encodeURI(this.state.name.trim()))
                 // this.props.history.push('/match?name='+encodeURI(this.state.name.trim()));
-            }, 700); //Wait for fade-out effect to finish
-        }else{
+                , 700); //Wait for fade-out effect to finish
+        } else {
             this.setState({
                 nameError: 'Gib einen Namen ein'
             })
