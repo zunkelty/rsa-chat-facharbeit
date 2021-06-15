@@ -114,12 +114,12 @@ class Chat extends Component {
                     this.setState({
                         fadeOut: true
                     })
-                    setTimeout(() => this.props.history.push('/'), 500);
+                    setTimeout(() => location.replace('/'), 500);
                 } else {
                     this.setState({
                         fadeOut: true
                     })
-                    setTimeout(() => this.props.history.push('/'), 500);
+                    setTimeout(() => location.replace('/'), 500);
                 }
             })
 
