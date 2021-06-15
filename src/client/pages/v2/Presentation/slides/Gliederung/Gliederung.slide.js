@@ -33,16 +33,11 @@ const Gliederung = props => {
                         <h3>4. Ablauf einer Verschlüsselung</h3>
                     </div>
                 </div>
-                <div className="point quiz" style={{ marginTop: '720px' }}>
-                    <div className="tile left">
-                        <h3>Verschlüsselungs-Quiz</h3>
-                    </div>
-                </div>
             </div>
-            <div className="scroll-down-container">
+            {/* <div className="scroll-down-container">
                 <p>Scrolle nach unten</p>
                 <img src={ScrollDown} alt="Scrolle nach unten" className="arrow-down" />
-            </div>
+            </div> */}
         </div>
     );
 };
