@@ -70,7 +70,7 @@ class Presentation extends Component {
     }
 
     checkLocalStorage() {
-        if (localStorage.getItem('sentEncryptedMessage') === undefined || localStorage.getItem('receivedDecryptedMessage') === undefined) {
+        if (!localStorage.getItem('sentEncryptedMessage') || !localStorage.getItem('receivedDecryptedMessage')) {
             localStorage.setItem('sentEncryptedMessage', 'Beispielverschlüsselung')
             localStorage.setItem('sentDecryptedMessage', 'Beispielnachricht')
             localStorage.setItem('receivedDecryptedMessage', 'Beispielnachricht')

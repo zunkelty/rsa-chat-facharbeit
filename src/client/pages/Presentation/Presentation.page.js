@@ -41,14 +41,14 @@ class Presentation extends Component {
                     <div className="tile">
                         <h2>Öffentlicher Schlüssel:</h2>
                         <div className="seperator" />
-                        <h3>{localStorage.getItem('ownPubKey').toString()}</h3>
+                        <h3>{localStorage.getItem('ownPubKey')?.toString()}</h3>
                     </div>
                 </div>}
                 {this.props.step === 3 && <div className="step three">
                     <div className="tile">
                         <h2>Privater Schlüssel:</h2>
                         <div className="seperator" />
-                        <h3>{localStorage.getItem('ownPrivateKey').toString()}</h3>
+                        <h3>{localStorage.getItem('ownPrivateKey')?.toString()}</h3>
                     </div>
                 </div>}
                 {this.props.step === 4 && <div className="step four">
