@@ -52,6 +52,7 @@ class Presentation extends Component {
                     isLoading: false,
                     step: step
                 })
+                this.checkLocalStorage();
             });
 
             this.socket.on('v2/presentation-step', step => {
@@ -61,10 +62,25 @@ class Presentation extends Component {
                     })
                     window.scrollY = 0;
                 }, 500);
-                if(document.getElementsByClassName('step')[0] !== undefined) document.getElementsByClassName('step')[0].style.opacity = 0;
+                if (document.getElementsByClassName('step')[0] !== undefined) document.getElementsByClassName('step')[0].style.opacity = 0;
+                this.checkLocalStorage();
             })
 
         })
+    }
+
+    checkLocalStorage() {
+        if (localStorage.getItem('sentEncryptedMessage') === undefined || localStorage.getItem('receivedDecryptedMessage') === undefined) {
+            localStorage.setItem('sentEncryptedMessage', 'Beispielverschlüsselung')
+            localStorage.setItem('sentDecryptedMessage', 'Beispielnachricht')
+            localStorage.setItem('receivedDecryptedMessage', 'Beispielnachricht')
+            localStorage.setItem('receivedEncryptedMessage', 'Beispielverschlüsselung')
+            localStorage.setItem('ownName', this.state.name);
+            localStorage.setItem('partnerName', 'Beispielname')
+            localStorage.setItem('partnerPubKey', 'Beispielschlüssel (öffentlich)');
+            localStorage.setItem('ownPubKey', 'Beispielschlüssel (öffentlich)');
+            localStorage.setItem('ownPrivateKey', 'Beispielschlüssel (privat)');
+        }
     }
 
     render() {
@@ -77,26 +93,26 @@ class Presentation extends Component {
                     {this.state.step === 3 && <OnewayFunctions className="step" />}
                     {this.state.step === 4 && <SymAsymEncryption className="step" />}
                     {/* {this.state.step === 4 && <FirstQuiz className="step" track={(status) => {console.log('Tracking Quiz start'); this.socket.emit('track', status)}}/>} */}
-                    {this.state.step === 5 && <WhatIsRSA className="step"/>}
-                    {this.state.step === 6 && <RSADemonstration className="step"/>}
-                    {this.state.step === 7 && <Setup className="step" jumpToPage={(page) => this.props.history.push(page)}/>}
-                    {this.state.step === 8 && <LetsLookBTS className="step"/>}
-                    {this.state.step === 9 && <PresentationPage step={1}/>}
-                    {this.state.step === 10 && <PresentationPage step={2}/>}
-                    {this.state.step === 11 && <PresentationPage step={3}/>}
-                    {this.state.step === 12 && <PresentationPage step={4}/>}
-                    {this.state.step === 13 && <PresentationPage step={5}/>}
-                    {this.state.step === 14 && <PresentationPage step={6}/>}
-                    {this.state.step === 15 && <PresentationPage step={7}/>}
-                    {this.state.step === 16 && <PresentationPage step={8}/>}
-                    {this.state.step === 17 && <PresentationPage step={9}/>}
-                    {this.state.step === 18 && <PresentationPage step={10}/>}
-                    {this.state.step === 19 && <PresentationPage step={11}/>}
-                    {this.state.step === 20 && <PresentationPage step={12}/>}
-                    {this.state.step === 21 && <PresentationPage step={13}/>}
-                    {this.state.step === 22 && <PresentationPage step={14}/>}
-                    {this.state.step === 23 && <SecondQuiz className="step" track={(status) => {console.log('Tracking Quiz start'); this.socket.emit('track', status)}}/>}
-                    {this.state.step === 24 && <FinalPage className="step"/>}
+                    {this.state.step === 5 && <WhatIsRSA className="step" />}
+                    {this.state.step === 6 && <RSADemonstration className="step" />}
+                    {this.state.step === 7 && <Setup className="step" jumpToPage={(page) => this.props.history.push(page)} />}
+                    {this.state.step === 8 && <LetsLookBTS className="step" />}
+                    {this.state.step === 9 && <PresentationPage step={1} />}
+                    {this.state.step === 10 && <PresentationPage step={2} />}
+                    {this.state.step === 11 && <PresentationPage step={3} />}
+                    {this.state.step === 12 && <PresentationPage step={4} />}
+                    {this.state.step === 13 && <PresentationPage step={5} />}
+                    {this.state.step === 14 && <PresentationPage step={6} />}
+                    {this.state.step === 15 && <PresentationPage step={7} />}
+                    {this.state.step === 16 && <PresentationPage step={8} />}
+                    {this.state.step === 17 && <PresentationPage step={9} />}
+                    {this.state.step === 18 && <PresentationPage step={10} />}
+                    {this.state.step === 19 && <PresentationPage step={11} />}
+                    {this.state.step === 20 && <PresentationPage step={12} />}
+                    {this.state.step === 21 && <PresentationPage step={13} />}
+                    {this.state.step === 22 && <PresentationPage step={14} />}
+                    {this.state.step === 23 && <SecondQuiz className="step" track={(status) => { console.log('Tracking Quiz start'); this.socket.emit('track', status) }} />}
+                    {this.state.step === 24 && <FinalPage className="step" />}
                 </div>}
                 {this.state.isLoading && <div className="loading">
                     <img src={Loader} alt="Wird geladen" />
