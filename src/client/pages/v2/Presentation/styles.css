@@ -56,7 +56,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  overflow-y: visible;
+  overflow-y: scroll;
 }
 
 .page.v2-presentation .step {
